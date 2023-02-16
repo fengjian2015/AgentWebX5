@@ -1,0 +1,33 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.just.agentweb"
+    >
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <application>
+        <service
+            android:name="com.tencent.smtt.export.external.DexClassLoaderProviderService"
+            android:label="dexopt"
+            android:process=":dexopt" >
+        </service>
+        <provider
+            android:name="com.just.agentweb.AgentWebFileProvider"
+            android:authorities="${applicationId}.AgentWebFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/web_files_public"/>
+        </provider>
+        <activity
+            android:name="com.just.agentweb.AgentActionFragment"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="standard"
+            android:theme="@style/actionActivity"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden">
+
+        </activity>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,29 @@
+<resources>
+    <string name="agentweb_download_task_has_been_exist">The task already exists, do not repeat click to download!</string>
+    <string name="agentweb_tips">Note</string>
+    <string name="agentweb_honeycomblow">Wi-Fi disconnected. Continue the download via mobile data network?</string>
+    <string name="agentweb_download">Download</string>
+    <string name="agentweb_cancel">Cancel</string>
+    <string name="agentweb_download_fail">Download failed!</string>
+    <string name="agentweb_current_downloading_progress">Downloading:%s</string>
+    <string name="agentweb_current_downloaded_length">downloaded:%s</string>
+    <string name="agentweb_trickter">You have a new notice</string>
+    <string name="agentweb_file_download">Download</string>
+    <string name="agentweb_click_open">Tap to continue</string>
+    <string name="agentweb_coming_soon_download">Coming soon to download the file</string>
+    <string name="agentweb_camera">Camera</string>
+    <string name="agentweb_file_chooser">Files</string>
+    <string name="agentweb_loading">Loading ...</string>
+    <string name="agentweb_leave_app_and_go_other_page">leaving %s and opening another app?</string>
+    <string name="agentweb_leave">Go away</string>
+    <string name="agentweb_max_file_length_limit">The selected file can not be larger than %s MB</string>
+    <string name="agentweb_default_page_error">error~</string>
+    <string name="agentweb_message_show_ssl_untrusted">The certificate authority is not trusted.</string>
+    <string name="agentweb_message_show_ssl_expired">The certificate has expired.</string>
+    <string name="agentweb_message_show_ssl_hostname_mismatch">The certificate Hostname mismatch.</string>
+    <string name="agentweb_message_show_ssl_not_yet_valid">The certificate is not yet valid.</string>
+    <string name="agentweb_message_show_ssl_error">SSL Certificate error.</string>
+    <string name="agentweb_message_show_continue">Do you want to continue anyway?</string>
+    <string name="agentweb_title_ssl_error">SSL Certificate Error</string>
+    <string name="agentweb_continue">Continue</string>
+</resources>

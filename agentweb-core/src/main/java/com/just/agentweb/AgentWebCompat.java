@@ -4,6 +4,8 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import android.util.Log;
+
 import com.tencent.smtt.sdk.WebView;
 
 import com.tencent.smtt.export.external.TbsCoreSettings;
@@ -28,12 +30,15 @@ public class AgentWebCompat {
         // 在调用TBS初始化、创建WebView之前进行如下配置
         HashMap map = new HashMap();
         map.put(TbsCoreSettings.TBS_SETTINGS_USE_SPEEDY_CLASSLOADER, true);
+        map.put(TbsCoreSettings.TBS_SETTINGS_USE_PRIVATE_CLASSLOADER, true);
         map.put(TbsCoreSettings.TBS_SETTINGS_USE_DEXLOADER_SERVICE, true);
         QbSdk.initTbsSettings(map);
+        QbSdk.setDownloadWithoutWifi(true);
         QbSdk.initX5Environment(context, new QbSdk.PreInitCallback() {
             @Override
             public void onCoreInitFinished() {
                 // 内核初始化完成，可能为系统内核，也可能为系统内核
+                Log.d("---------","onCoreInitFinished");
             }
 
             /**
@@ -43,7 +48,7 @@ public class AgentWebCompat {
              */
             @Override
             public void onViewInitFinished(boolean isX5) {
-
+                Log.d("---------","onViewInitFinished："+isX5);
             }
         });
     }

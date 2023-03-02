@@ -11,6 +11,7 @@ android {
         versionName "5.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+        ndk{abiFilters"armeabi","armeabi-v7a"}
     }
     signingConfigs {
         release {

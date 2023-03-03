@@ -34,21 +34,32 @@ public class AgentWebCompat {
         map.put(TbsCoreSettings.TBS_SETTINGS_USE_DEXLOADER_SERVICE, true);
         QbSdk.initTbsSettings(map);
         QbSdk.setDownloadWithoutWifi(true);
+        Log.d("AgentWebCompat","内核版本："+QbSdk.getTbsVersion(context));
+
+        if (QbSdk.getTbsVersion(context) == 0) {
+            Log.d("AgentWebCompat","非X5内核，加载本地内核");
+            File copy = new File(FileUtils.getCacheDir(context)+"/tbs/tbs_core_046238_20230210164344_nolog_fs_obfs_armeabi_release.apk");
+            AssetsUtil.putAssetsToSDCard(context, "tbs",FileUtils.getCacheDir(context));
+            Log.d("AgentWebCompat","copy:"+copy.getAbsolutePath());
+//            QbSdk.installLocalQbApk(context,"44286",copy.getAbsolutePath(),null);
+            QbSdk.installLocalTbsCore(context, 44286, copy.getAbsolutePath());
+        }
         QbSdk.initX5Environment(context, new QbSdk.PreInitCallback() {
             @Override
             public void onCoreInitFinished() {
                 // 内核初始化完成，可能为系统内核，也可能为系统内核
-                Log.d("---------","onCoreInitFinished");
+                Log.d("AgentWebCompat", "onCoreInitFinished");
             }
 
             /**
              * 预初始化结束
              * 由于X5内核体积较大，需要依赖网络动态下发，所以当内核不存在的时候，默认会回调false，此时将会使用系统内核代替
+             *
              * @param isX5 是否使用X5内核
              */
             @Override
             public void onViewInitFinished(boolean isX5) {
-                Log.d("---------","onViewInitFinished："+isX5);
+                Log.d("AgentWebCompat", "onViewInitFinished：" + isX5);
             }
         });
     }

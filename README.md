@@ -1,11 +1,9 @@
 
-<div style="display: flex;flex-direction: row;justify-content: center" width="100%">
-      <img src="./img/logo.png"></img>
-</div>
-
 ## AgentWeb 介绍
 
 AgentWebX5 是一个基于 [AgentWeb](https://github.com/Justson/AgentWeb)  内部集成腾讯X5 ，极度容易使用以及功能强大的库，提供了 Android WebView 一系列的问题解决方案 ，并且轻量和极度灵活，详细使用请参照上面的 Sample 。
+
+初始化时第一次安装时会安装本地X5内核 ，详情查看AgentWebCompat类
 
 自行引入aar包	
 
@@ -37,3 +35,6 @@ AgentWebCompat.initX5(this);
 * [更新日志](./releasenote.md)
 
 
+## TBS 内核下载地址，如何查看：请加载http://debugtbs.qq.com页面，点击安装线上内核，即可查看到下载地址
+* https://tbs.imtt.qq.com/others/release/x5/tbs_core_046239_20230210162827_nolog_fs_obfs_arm64-v8a_release.tbs
+* https://tbs.imtt.qq.com/others/release/x5/tbs_core_046238_20230210164344_nolog_fs_obfs_armeabi_release.tbs

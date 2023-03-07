@@ -37,12 +37,20 @@ public class AgentWebCompat {
         Log.d("AgentWebCompat","内核版本："+QbSdk.getTbsVersion(context));
 
         if (QbSdk.getTbsVersion(context) == 0) {
-            Log.d("AgentWebCompat","非X5内核，加载本地内核");
-            File copy = new File(FileUtils.getCacheDir(context)+"/tbs/tbs_core_046238_20230210164344_nolog_fs_obfs_armeabi_release.apk");
-            AssetsUtil.putAssetsToSDCard(context, "tbs",FileUtils.getCacheDir(context));
-            Log.d("AgentWebCompat","copy:"+copy.getAbsolutePath());
+            Log.d("AgentWebCompat","非X5内核，加载本地内核 "+Build.CPU_ABI +"  "+ Build.CPU_ABI);
+            if (Build.CPU_ABI.contains("64")){
+                File copy = new File(FileUtils.getCacheDir(context) + "/tbs/tbs_core_046239_20230210162827_nolog_fs_obfs_arm64-v8a_release.apk");
+                AssetsUtil.putAssetsToSDCard(context, "tbs", FileUtils.getCacheDir(context));
+                Log.d("AgentWebCompat", "copy:" + copy.getAbsolutePath());
 //            QbSdk.installLocalQbApk(context,"44286",copy.getAbsolutePath(),null);
-            QbSdk.installLocalTbsCore(context, 44286, copy.getAbsolutePath());
+                QbSdk.installLocalTbsCore(context, 44286, copy.getAbsolutePath());
+            }else {
+                File copy = new File(FileUtils.getCacheDir(context) + "/tbs/tbs_core_046238_20230210164344_nolog_fs_obfs_armeabi_release.apk");
+                AssetsUtil.putAssetsToSDCard(context, "tbs", FileUtils.getCacheDir(context));
+                Log.d("AgentWebCompat", "copy:" + copy.getAbsolutePath());
+//            QbSdk.installLocalQbApk(context,"44286",copy.getAbsolutePath(),null);
+                QbSdk.installLocalTbsCore(context, 44286, copy.getAbsolutePath());
+            }
         }
         QbSdk.initX5Environment(context, new QbSdk.PreInitCallback() {
             @Override

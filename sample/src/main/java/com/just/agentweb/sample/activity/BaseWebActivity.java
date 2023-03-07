@@ -114,9 +114,9 @@ public class BaseWebActivity extends AppCompatActivity {
     };
 
     public String getUrl() {
-//        return "https://liulanmi.com/labs/core.html"; //chromium内核版本检测
+        return "https://liulanmi.com/labs/core.html"; //chromium内核版本检测
 //        return "http://soft.imtt.qq.com/browser/tes/feedback.html"; // 查看是否成功加载X5
-        return "http://debugtbs.qq.com"; //x5检测页面
+//        return "http://debugtbs.qq.com"; //x5检测页面
     }
 
 

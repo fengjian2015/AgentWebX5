@@ -22,9 +22,11 @@ import com.just.agentweb.sample.fragment.SmartRefreshWebFragment;
 import com.just.agentweb.sample.fragment.VasSonicFragment;
 
 import static com.just.agentweb.sample.activity.MainActivity.FLAG_GUIDE_DICTIONARY_BOUNCE_EFFACT;
+import static com.just.agentweb.sample.activity.MainActivity.FLAG_GUIDE_DICTIONARY_CHROMIUM;
 import static com.just.agentweb.sample.activity.MainActivity.FLAG_GUIDE_DICTIONARY_CUSTOM_PROGRESSBAR;
 import static com.just.agentweb.sample.activity.MainActivity.FLAG_GUIDE_DICTIONARY_CUSTOM_WEBVIEW_SETTINGS;
 import static com.just.agentweb.sample.activity.MainActivity.FLAG_GUIDE_DICTIONARY_CUTSTOM_WEBVIEW;
+import static com.just.agentweb.sample.activity.MainActivity.FLAG_GUIDE_DICTIONARY_DEBUGTBS;
 import static com.just.agentweb.sample.activity.MainActivity.FLAG_GUIDE_DICTIONARY_FILE_DOWNLOAD;
 import static com.just.agentweb.sample.activity.MainActivity.FLAG_GUIDE_DICTIONARY_INPUT_TAG_PROBLEM;
 import static com.just.agentweb.sample.activity.MainActivity.FLAG_GUIDE_DICTIONARY_JSBRIDGE_SAMPLE;
@@ -33,6 +35,7 @@ import static com.just.agentweb.sample.activity.MainActivity.FLAG_GUIDE_DICTIONA
 import static com.just.agentweb.sample.activity.MainActivity.FLAG_GUIDE_DICTIONARY_LINKS;
 import static com.just.agentweb.sample.activity.MainActivity.FLAG_GUIDE_DICTIONARY_MAP;
 import static com.just.agentweb.sample.activity.MainActivity.FLAG_GUIDE_DICTIONARY_PULL_DOWN_REFRESH;
+import static com.just.agentweb.sample.activity.MainActivity.FLAG_GUIDE_DICTIONARY_TEST;
 import static com.just.agentweb.sample.activity.MainActivity.FLAG_GUIDE_DICTIONARY_USE_IN_FRAGMENT;
 import static com.just.agentweb.sample.activity.MainActivity.FLAG_GUIDE_DICTIONARY_VASSONIC_SAMPLE;
 import static com.just.agentweb.sample.activity.MainActivity.FLAG_GUIDE_DICTIONARY_VIDEO_FULL_SCREEN;
@@ -73,7 +76,18 @@ public class CommonActivity extends AppCompatActivity {
 
 
 		switch (key) {
-
+			case FLAG_GUIDE_DICTIONARY_TEST:
+				ft.add(R.id.container_framelayout, mAgentWebFragment = AgentWebFragment.getInstance(mBundle = new Bundle()), AgentWebFragment.class.getName());
+				mBundle.putString(AgentWebFragment.URL_KEY, " https://v8j.vip9158.com/");
+				break;
+			case FLAG_GUIDE_DICTIONARY_CHROMIUM:
+				ft.add(R.id.container_framelayout, mAgentWebFragment = AgentWebFragment.getInstance(mBundle = new Bundle()), AgentWebFragment.class.getName());
+				mBundle.putString(AgentWebFragment.URL_KEY, "https://liulanmi.com/labs/core.html/");
+				break;
+			case FLAG_GUIDE_DICTIONARY_DEBUGTBS:
+				ft.add(R.id.container_framelayout, mAgentWebFragment = AgentWebFragment.getInstance(mBundle = new Bundle()), AgentWebFragment.class.getName());
+				mBundle.putString(AgentWebFragment.URL_KEY, "http://debugtbs.qq.com");
+				break;
             /*Fragment 使用AgenWeb*/
 			case FLAG_GUIDE_DICTIONARY_USE_IN_FRAGMENT: //项目中请使用常量代替0 ， 代码可读性更高
 				ft.add(R.id.container_framelayout, mAgentWebFragment = AgentWebFragment.getInstance(mBundle = new Bundle()), AgentWebFragment.class.getName());

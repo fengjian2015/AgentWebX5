@@ -38,7 +38,10 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
     public static final int FLAG_GUIDE_DICTIONARY_USE_IN_ACTIVITY = 0x01;
-    public static final int FLAG_GUIDE_DICTIONARY_USE_IN_FRAGMENT = FLAG_GUIDE_DICTIONARY_USE_IN_ACTIVITY << 1;
+    public static final int FLAG_GUIDE_DICTIONARY_TEST = FLAG_GUIDE_DICTIONARY_USE_IN_ACTIVITY << 1;
+    public static final int FLAG_GUIDE_DICTIONARY_CHROMIUM = FLAG_GUIDE_DICTIONARY_TEST << 1;
+    public static final int FLAG_GUIDE_DICTIONARY_DEBUGTBS = FLAG_GUIDE_DICTIONARY_CHROMIUM << 1;
+    public static final int FLAG_GUIDE_DICTIONARY_USE_IN_FRAGMENT = FLAG_GUIDE_DICTIONARY_DEBUGTBS << 1;
     public static final int FLAG_GUIDE_DICTIONARY_FILE_DOWNLOAD = FLAG_GUIDE_DICTIONARY_USE_IN_FRAGMENT << 1;
     public static final int FLAG_GUIDE_DICTIONARY_INPUT_TAG_PROBLEM = FLAG_GUIDE_DICTIONARY_FILE_DOWNLOAD << 1;
     public static final int FLAG_GUIDE_DICTIONARY_JS_JAVA_COMMUNICATION = FLAG_GUIDE_DICTIONARY_INPUT_TAG_PROBLEM << 1;
@@ -62,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     public static final GuideItemEntity[] datas = new GuideItemEntity[]{
+            new GuideItemEntity("测试https://v8j.vip9158.com", FLAG_GUIDE_DICTIONARY_TEST),
+            new GuideItemEntity("检查chromium版本 ", FLAG_GUIDE_DICTIONARY_CHROMIUM),
+            new GuideItemEntity("X5debug", FLAG_GUIDE_DICTIONARY_DEBUGTBS),
             new GuideItemEntity("Activity 使用 AgentWeb", FLAG_GUIDE_DICTIONARY_USE_IN_ACTIVITY),
             new GuideItemEntity("Fragment 使用 AgentWeb ", FLAG_GUIDE_DICTIONARY_USE_IN_FRAGMENT),
             new GuideItemEntity("IPC WebView独立进程", FLAG_GUIDE_DICTIONARY_IPC),
@@ -147,7 +153,18 @@ public class MainActivity extends AppCompatActivity {
 
         int index = datas[position].getGuideDictionary();
         switch (index) {
-
+            case FLAG_GUIDE_DICTIONARY_TEST:
+                startActivity(new Intent(this, CommonActivity.class)
+                        .putExtra(CommonActivity.TYPE_KEY, FLAG_GUIDE_DICTIONARY_TEST));
+                break;
+            case FLAG_GUIDE_DICTIONARY_CHROMIUM:
+                startActivity(new Intent(this, CommonActivity.class)
+                        .putExtra(CommonActivity.TYPE_KEY, FLAG_GUIDE_DICTIONARY_CHROMIUM));
+                break;
+            case FLAG_GUIDE_DICTIONARY_DEBUGTBS:
+                startActivity(new Intent(this, CommonActivity.class)
+                        .putExtra(CommonActivity.TYPE_KEY, FLAG_GUIDE_DICTIONARY_DEBUGTBS));
+                break;
             /* Activity agentWeb */
             case FLAG_GUIDE_DICTIONARY_USE_IN_ACTIVITY:
 
